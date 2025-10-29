@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <meta charset="UTF-8">
+  <title>Arbeitszeit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="headContainer">
+  <span id="displayDate">Datum</span><span class="timePerWeek">20h/Woche</span>
+  </div><br>
+  Beginn: <input type="number" id="hoursBegin" placeholder="06"> : <input type="number" id="minutesBegin" placeholder="35"> Uhr<br>
+  Ende: <input type="number" id="hoursEnd" placeholder="09"> : <input type="number" id="minutesEnd" placeholder="05"> Uhr<br>
+  <div id="resultsContainer">
+    <span id="results">Insg. Arbeitszeit: 0h 0min,  Überstunden: 0h 0min</span>
+  </div><br>
+  <button onclick="add()" id="addBttn">Hinzufügen</button><br>
+  <button onclick="reset()" id="resetBttn">Zurücksetzen</button><p id="infoText">Jeden Montag vor dem benutzen einmal auf "Zurücksetzen" tippen!</p>
+  <script src="script.js"></script>
+</body>
+</html>

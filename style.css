@@ -1,0 +1,75 @@
+@media (max-width: 480px) {
+  input {
+    width: 40px;
+    height: 30px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+  
+  #hoursEnd {
+  margin-left: 13px;
+  }
+ 
+  #headContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 2px solid black;
+    border-radius: 8px;
+    height: 25px;
+    align-items: center;
+  }
+
+  #resultsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid black;
+    margin-top: 15px;
+  }
+
+  button {
+    display: block;
+    margin: 0 auto;
+    height: 35px;
+    width: 100px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: white;
+  }
+
+  #addBttn {
+    border: 3px solid darkgreen;
+    background-color: #388c29;
+  }
+
+  #resetBttn {
+    border: 3px solid darkred;
+    background-color: red;
+  }
+} /*Mobile version end */
+
+body {
+  background-color: lightgray;
+  font-weight: bold;
+}
+
+input::placeholder {
+  color: lightgray;
+}
+
+#displayDate {
+  font-weight: bold;
+}
+
+.timePerWeek {
+  font-weight: bold;
+}
+
+#infoText {
+  text-align: center;
+}
