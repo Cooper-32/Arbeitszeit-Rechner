@@ -51,6 +51,19 @@
     border: 3px solid darkred;
     background-color: red;
   }
+
+  #historyDisplay {
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: white;
+  }
+
+  #resetHistory {
+    border: 3px solid darkred;
+    background-color: red;
+    width: 115px;
+  }
 } /*Mobile version end */
 
 body {
