@@ -1,5 +1,8 @@
+const body = document.querySelector("body");
+const historyDisplay = document.getElementById("historyDisplay");
 const displayDate = document.getElementById("displayDate");
 const displayResults = document.getElementById("results");
+const infoText = document.getElementById("infoText");
 const wwt = 20;
 let overtime = Number(localStorage.getItem("overtime")) || 0;
 let hoursInt = 0;
@@ -8,6 +11,8 @@ let timeInMinutes = Number(localStorage.getItem("timeInMinutes")) || 0;
 let overtimeHours = 0;
 let overtimeMinutes = 0;
 let overtimeMinFloat = 0;
+let history = localStorage.getItem("history") || "";
+historyDisplay.innerHTML = history;
 
 if (timeInMinutes > 1200) {
   let hoursFloat = timeInMinutes / 60;
@@ -56,14 +61,19 @@ function add() {
     displayResults.innerHTML = `Insg. Arbeitszeit: ${hoursInt}h ${minutesInt}min, Überstunden: ${overtimeHours}h ${overtimeMinutes}min`;
   } else {
   displayResults.innerHTML = `Insg. Arbeitszeit: ${hoursInt}h ${minutesInt}min,   Überstunden: 0h 0min`;}
-  if (minutesInt < 0) {
-   minutesInt = 0;}
+  if (timeInMinutes < 0) {
+infoText.innerHTML = "Fehler in der Eingabe!";
+  infoText.style.color = "white";
+  infoText.style.backgroundColor = "red";
+  } else {document.getElementById("infoText").innerHTML = "";}
   if (debug) {
     console.log(`Tag: ${weekdays[weekday]}, Datum: ${day}, Monat: ${month}, Jahr: ${year}, hoursBegin: ${hoursBegin}, minutesBegin: ${minutesBegin}, hoursEnd: ${hoursEnd}, minutesEnd: ${minutesEnd}, timeBegin: ${timeBegin}, timeEnd: ${timeEnd}, HoursFloat: ${hoursFloat}, Stunden: ${hoursInt} Minuten: ${minutesInt}, ArbZeit/Woche: ${wwt}, timeInMinutes ${timeInMinutes}, Overtime HoursFloat: ${overtime}, Overtime min: ${overtimeMinutes}`);
   }
-document.getElementById("infoText").innerHTML = "";
 localStorage.setItem("overtime", overtime);
-  localStorage.setItem("timeInMinutes", timeInMinutes);
+localStorage.setItem("timeInMinutes", timeInMinutes);
+  history += `${weekdays[weekday]}, ${day}.${month}.${year}<br>${String(hoursBegin).padStart(2, "0")}:${String(minutesBegin).padStart(2, "0")} - ${String(hoursEnd).padStart(2, "0")}:${String(minutesEnd).padStart(2, "0")} Uhr<br><br>`;
+  historyDisplay.innerHTML = history;
+  localStorage.setItem("history", history);
    }
 
 function reset() {
@@ -72,5 +82,12 @@ localStorage.setItem("timeInMinutes", 0);
   overtime =  0;
 localStorage.setItem("overtime", 0);
   displayResults.innerHTML = "Insg. Arbeitszeit: 0h 0min,   Überstunden: 0h 0min";
+  history += `Insg. Arbeitszeit: ${hoursInt}h ${minutesInt}min, Überstunden: ${overtimeHours}h ${overtimeMinutes}min <br>`;
+  historyDisplay.innerHTML = history;
 }
 
+function resetHistory() {
+  history = "";
+  historyDisplay.innerHTML = "";
+  localStorage.setItem("history", "");
+}
