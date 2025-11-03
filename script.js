@@ -85,6 +85,7 @@ localStorage.setItem("overtime", 0);
   displayResults.innerHTML = "Insg. Arbeitszeit: 00h 00min,   Überstunden: 00h 00min";
   history += `Insg. Arbeitszeit: ${String(hoursInt).padStart(2, "0")}h ${String(minutesInt).padStart(2, "0")}min, Überstunden: ${String(overtimeHours).padStart(2, "0")}h ${String(overtimeMinutes).padStart(2, "0")}min <br><br><br>`;
   historyDisplay.innerHTML = history;
+  localStorage.setItem("history", history);
 }
 
 function resetHistory() {
