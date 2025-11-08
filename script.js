@@ -29,7 +29,7 @@ if (timeInMinutes > 1200) {
 const newDate = new Date();
 const date = {
   day: newDate.getDate(),
-  month: newDate.getMonth(),
+  month: newDate.getMonth() + 1,
   year: newDate.getFullYear(),
   weekday: newDate.getDay(),
   weekdays: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"]
