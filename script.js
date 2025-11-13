@@ -29,7 +29,7 @@ if (timeInMinutes > 1200) {
 const newDate = new Date();
 const date = {
   day: newDate.getDate(),
-  month: newDate.getMonth() + 1,
+  month: newDate.getMonth(),
   year: newDate.getFullYear(),
   weekday: newDate.getDay(),
   weekdays: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"]
@@ -78,6 +78,8 @@ infoText.innerHTML = "Fehler in der Eingabe!";
    }
 
 function reset() {
+if (date.weekdays !== date.weekdays[1]) {
+  alert(`Fehlgeschlagen! Es ist nicht Montag.`);} else {
   timeInMinutes = 0;
 localStorage.setItem("timeInMinutes", 0);
   overtime =  0;
@@ -85,7 +87,7 @@ localStorage.setItem("overtime", 0);
   displayResults.innerHTML = "Insg. Arbeitszeit: 00h 00min,   Überstunden: 00h 00min";
   history += `Insg. Arbeitszeit: ${String(hoursInt).padStart(2, "0")}h ${String(minutesInt).padStart(2, "0")}min, Überstunden: ${String(overtimeHours).padStart(2, "0")}h ${String(overtimeMinutes).padStart(2, "0")}min <br><br><br>`;
   historyDisplay.innerHTML = history;
-  localStorage.setItem("history", history);
+localStorage.setItem("history", history);}
 }
 
 function resetHistory() {
